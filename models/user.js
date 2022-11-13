@@ -1,31 +1,5 @@
-const mongodb = require('mongodb');
-const getDb = require('../util/database').getDb;
-
-
-module.exports = class User {
-  constructor(name, email) {
-    this.name = name;
-    this.email = email;
-  }
-
-  save() {
-    const db = getDb()
-    db.collection('user').insertOne(this).then((result) => {
-      console.log(result)
-    }).catch((err) => {
-      console.log(err)
-    });
-  }
-
-  static findById(productId) {
-    const db = getDb();
-    return db.collection('user').find({ _id: mongodb.ObjectId(productId) }).next().then((result) => {
-      console.log(result)
-    }).catch((err) => {
-
-    });
-  }
-}
+// const mongodb = require('mongodb');
+// const getDb = require('../util/database').getDb;
 
 // const ObjectId = mongodb.ObjectId;
 
@@ -39,7 +13,7 @@ module.exports = class User {
 
 //   save() {
 //     const db = getDb();
-//     return db.collection('user').insertOne(this);
+//     return db.collection('users').insertOne(this);
 //   }
 
 //   addToCart(product) {
@@ -63,7 +37,7 @@ module.exports = class User {
 //     };
 //     const db = getDb();
 //     return db
-//       .collection('user')
+//       .collection('users')
 //       .updateOne(
 //         { _id: new ObjectId(this._id) },
 //         { $set: { cart: updatedCart } }
@@ -97,7 +71,7 @@ module.exports = class User {
 //     });
 //     const db = getDb();
 //     return db
-//       .collection('user')
+//       .collection('users')
 //       .updateOne(
 //         { _id: new ObjectId(this._id) },
 //         { $set: { cart: { items: updatedCartItems } } }
@@ -120,7 +94,7 @@ module.exports = class User {
 //       .then(result => {
 //         this.cart = { items: [] };
 //         return db
-//           .collection('user')
+//           .collection('users')
 //           .updateOne(
 //             { _id: new ObjectId(this._id) },
 //             { $set: { cart: { items: [] } } }
@@ -139,14 +113,16 @@ module.exports = class User {
 //   static findById(userId) {
 //     const db = getDb();
 //     return db
-//       .collection('user')
+//       .collection('users')
 //       .findOne({ _id: new ObjectId(userId) })
 //       .then(user => {
+//         console.log(user);
 //         return user;
 //       })
 //       .catch(err => {
 //         console.log(err);
 //       });
 //   }
+// }
 
-
+// module.exports = User;
