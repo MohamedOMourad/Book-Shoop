@@ -34,7 +34,8 @@ app.use(errorController.get404);
 
 mongoose
   .connect(
-    'mongodb+srv://Mourad:24ZiUgxwtRPD7NAG@cluster0.vnlugoi.mongodb.net/shop?retryWrites=true&w=majority', { useNewUrlParser: true }
+    'mongodb+srv://Mourad:24ZiUgxwtRPD7NAG@cluster0.vnlugoi.mongodb.net/shop?retryWrites=true&w=majority',
+    { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(result => {
     app.listen(3000);
